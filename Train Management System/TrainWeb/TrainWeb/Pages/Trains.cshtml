@@ -1,0 +1,37 @@
+﻿@page
+@model TrainWeb.Pages.TrainsModel
+@{
+
+}
+<!DOCTYPE <html> 
+    <html>
+    <head></head>
+    <body>
+        <table>
+            <tr>
+               <th>Id</th>
+               <th>Name</th>
+               <th>Type</th>
+               <th>Capacity</th>
+            </tr>
+            @foreach (var train in Model.trains)
+            {
+            <tr>
+                <th>@train.Id</th>
+                <th>@train.Name</th>
+                <th>@train.Type</th>
+                <th>@train.Capacity</th>
+            </tr>
+        }
+        </table>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function ()){
+    var trains = @Html.Raw(Json.Serialize(Model.trains));
+    if (trains.length > 0) {
+        alert("Data Loading");
+    }
+            });
+        </script>
+    </body>
+</html>

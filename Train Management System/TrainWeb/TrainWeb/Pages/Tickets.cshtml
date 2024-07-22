@@ -1,0 +1,38 @@
+﻿@page
+@model TrainWeb.Pages.TicketsModel
+@{
+
+}
+<! DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <table>
+            <tr>
+                 <th> ID</th>
+                 <th> Name</th>
+                 <th>Price</th>
+            </tr>
+            @foreach (var ticket in Model.tickets)
+            {
+            <tr>
+            <th> @ticket.Id </th>
+            <th> @ticket.Name </th>
+            <th> @ticket.Price </th>
+            </tr>
+        }
+   
+        </table>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function ()){
+                var tickets = @Html.Raw(Json.Serialize(Model.tickets));
+                if (tickets.lenghth > 0) {
+                alert("Data Loading");
+    }
+            });
+        </script>
+
+    </body>
+</html>
+
